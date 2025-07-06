@@ -1,0 +1,684 @@
+/* Basic Resets and Global Styles */
+:root {
+    --primary-green: #4CAF50;
+    --primary-blue: #2196F3;
+    --primary-orange: #FF9800;
+    --primary-purple: #9C27B0;
+    --light-gray: #F5F5F5;
+    --medium-gray: #E0E0E0;
+    --dark-gray: #B0B0B0;
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --border-color: #EFEFEF;
+    --card-background: #FFFFFF;
+    --sidebar-background: #FFFFFF;
+    --right-sidebar-background: #F9F9F9;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure HTML and Body take full height and prevent overall page scrolling */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling on the entire page */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    padding: 20px; /* Add some padding around the whole container */
+}
+
+/* Portfolio Container Layout */
+.portfolio-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px; /* Max width for the entire portfolio */
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Ensures rounded corners are respected */
+    height: calc(100vh - 40px); /* Make container fill viewport height minus body padding */
+}
+
+/* Left Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-background);
+    padding: 30px 20px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 100%; /* Make sidebar fill container height */
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.your-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-green); /* Example color, adjust as needed */
+    letter-spacing: 1px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav .nav-item:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-green);
+}
+
+.sidebar-nav .nav-item.active {
+    background-color: var(--primary-green);
+    color: #fff;
+}
+
+.sidebar-nav .nav-item .icon {
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    overflow-y: auto; /* Enable scrolling for main content */
+    scroll-behavior: smooth; /* Enable smooth scrolling for sections */
+    height: 100%; /* Make main content fill container height */
+}
+
+.content-section {
+    padding-bottom: 40px; /* Spacing between sections */
+}
+
+.section-header {
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header .icon {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.bio-header .section-title {
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.projects-header .section-title {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.skills-header .section-title {
+    color: var(--primary-orange);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.contact-header .section-title {
+    color: var(--primary-purple);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-top: 5px;
+}
+
+.description {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Projects Section Specifics */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Style for the link wrapping the project card */
+.project-link-card {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from parent, or set explicitly */
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease-in-out;
+    height: 100%; /* Ensure cards have consistent height if content varies */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-screenshot {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.project-card .project-title { /* Target the h3 specifically within the project card */
+    font-size: 1.2rem;
+    margin: 15px;
+    color: var(--text-color); /* Ensure the title color is not blue */
+    text-decoration: none; /* Explicitly remove underline if any default link styling applies */
+}
+
+.project-card .project-description {
+    font-size: 0.9rem;
+    margin: 0 15px 15px;
+    color: var(--secondary-text-color);
+    flex-grow: 1; /* Allows description to take available space */
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 15px 15px;
+}
+
+/* New tech tag colors for Python, CLI, SQLite, HTML, CSS, JavaScript */
+.tech-tag.python { background-color: #306998; }
+.tech-tag.cli { background-color: #444; }
+.tech-tag.database { background-color: #00758F; }
+.tech-tag.html { background-color: #E34C26; }
+.tech-tag.css { background-color: #264DE4; }
+.tech-tag.javascript { background-color: #F7DF1E; color: #333; } /* Dark text for JS tag */
+
+.tech-tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tech-tag.react { background-color: #61DAFB; }
+.tech-tag.typescript { background-color: #007ACC; }
+.tech-tag.nodejs { background-color: #68A063; }
+
+
+/* Skills Section Specifics */
+.skills-grid {
+    /* Adjust grid for a single card, or keep as is if it naturally centers one item */
+    display: grid;
+    grid-template-columns: 1fr; /* Force single column */
+    justify-items: center; /* Center the single card */
+    gap: 25px; /* Keep gap for consistency if more items were added later */
+}
+
+.skill-category {
+    background-color: var(--card-background);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    width: 100%; /* Make it span full width of its grid column */
+    max-width: 700px; /* Optional: limit max width for better readability */
+}
+
+.skill-category .category-title.all-skills {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-orange); /* Use a consistent color */
+    color: var(--primary-orange);
+    text-align: center;
+}
+
+.skills-list-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow lists to wrap on smaller screens */
+    justify-content: space-around; /* Distribute lists evenly */
+    gap: 20px; /* Space between skill columns */
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1; /* Allow lists to grow and shrink */
+    min-width: 180px; /* Minimum width for each skill column */
+}
+
+.skill-category li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: var(--secondary-text-color);
+}
+
+.skill-category .skill-bullet {
+    font-size: 0.5rem;
+    margin-right: 10px;
+}
+
+/* Specific bullet colors for consolidated list */
+.skill-item .skill-bullet.frontend { color: var(--primary-green); }
+.skill-item .skill-bullet.backend { color: var(--primary-blue); }
+.skill-item .skill-bullet.tools { color: var(--primary-orange); }
+
+
+/* Contact Section Specifics */
+.contact-heading {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.contact-subheading {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 10px); /* Two columns */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    flex: 1 1 100%; /* Full width for message */
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+.send-message-btn {
+    background-color: var(--primary-green);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: 20px;
+    width: fit-content;
+    align-self: flex-start; /* Align button to the left */
+}
+
+.send-message-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Right Sidebar */
+.right-sidebar {
+    width: 300px;
+    background-color: var(--right-sidebar-background);
+    padding: 30px 20px;
+    border-left: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking */
+    overflow-y: auto; /* Enable scrolling for right sidebar */
+    height: 100%; /* Make right sidebar fill container height */
+}
+
+.profile-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--medium-gray);
+}
+
+.profile-avatar {
+    width: 80px; /* Set a fixed width for the avatar container */
+    height: 80px; /* Set a fixed height for the avatar container */
+    background-color: var(--medium-gray);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    overflow: hidden; /* Crucial: Hides parts of the image that exceed the circular boundary */
+}
+
+.profile-avatar .profile-img {
+    width: 100%; /* Make the image fill its container's width */
+    height: 100%; /* Make the image fill its container's height */
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary, without distorting aspect ratio */
+    border-radius: 50%; /* Make the image itself circular */
+}
+
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.profile-title {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+
+.download-resume-btn {
+    background-color: var(--primary-green);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.download-resume-btn:hover {
+    background-color: #45a049;
+}
+
+.download-resume-btn .fas {
+    margin-right: 8px;
+}
+
+.info-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--medium-gray);
+}
+
+.info-card .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item .item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.info-item .item-subtitle {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin-top: 2px;
+}
+
+.info-item .item-date {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    margin-top: 2px;
+}
+
+.certificates-card .info-item .item-title .fas {
+    color: var(--primary-orange);
+    margin-right: 8px;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card ul li {
+    font-size: 0.95rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Indicate clickable items */
+}
+
+.info-card ul li .fas,
+.info-card ul li .fab {
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.companies-card ul li .fas {
+    color: var(--primary-blue);
+}
+
+.hobbies-card ul li .fas {
+    color: #E91E63; /* Pink for hobbies */
+}
+
+.contact-info-card ul li .fas,
+.contact-info-card ul li .fab {
+    color: var(--primary-purple);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .portfolio-container {
+        flex-direction: column;
+        max-width: 90%;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .sidebar-header {
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav {
+        display: none; /* Hide full nav for smaller screens */
+    }
+
+    .main-content {
+        padding: 20px;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .right-sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding: 20px;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .form-group {
+        flex: 1 1 100%; /* Stack contact form inputs */
+    }
+
+    .skills-list-container {
+        flex-direction: column; /* Stack skill lists vertically on smaller screens */
+        align-items: flex-start; /* Align lists to the left */
+    }
+    .skill-category ul {
+        width: 100%; /* Make each list take full width when stacked */
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .portfolio-container {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sidebar-header {
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    .sidebar-nav {
+        display: block; /* Show nav for smaller screens, but adjust layout */
+        width: 100%;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav .nav-item {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .sidebar-nav .nav-item .icon {
+        margin-right: 8px;
+    }
+
+    .section-header .section-title {
+        font-size: 1.5rem;
+    }
+
+    .bio-header .section-title {
+        font-size: 1.8rem;
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    .sidebar-nav .nav-item {
+        justify-content: center;
+    }
+    .profile-card,
+    .info-card {
+        padding: 15px;
+    }
+    .download-resume-btn {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}
