@@ -31,21 +31,6 @@ Font Awesome: For professional icons.
 
 Google Fonts (Inter): For modern and readable typography.
 
-Setup and Local Development
-To run this portfolio locally on your machine:
-
-Clone the Repository (if applicable):
-
-git clone https://github.com/yourusername/your-portfolio-repo.git
-cd your-portfolio-repo
-
-(Replace yourusername and your-portfolio-repo with your actual GitHub details if you've already pushed it.)
-
-Download Files: If you don't have it on GitHub yet, simply download the index.html and style.css files, along with any images (profile.jpg, project screenshots) and your resume (your_resume.pdf), and place them all in the same folder.
-
-Open in Browser: Open the index.html file directly in your web browser. You can usually do this by double-clicking the index.html file.
-
-Customization
 Update Content: Edit index.html to change "Your Name", bio, project details, skills, education, certificates, companies, and hobbies.
 
 Replace Images:
